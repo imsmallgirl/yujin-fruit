@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "뉴질랜드 골드키위",
+      "price": 12900,
+      "description": "뉴질랜드에서 온 촉촉한 달콤함",
+      "image": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1650348343574l0.jpg"
+    },
+    {
+      "id": 2,
+      "name": "제주 하우스 감귤",
+      "price": 11900,
+      "description": "새콤달콤한 과즙의 향연",
+      "image": "https://product-image.kurly.com/cdn-cgi/image/quality=85,width=676/product/image/8b074ee5-8268-461b-891a-23f017584596.jpg"
+    },
+    {
+      "id": 3,
+      "name": "조각 수박",
+      "price": 13900,
+      "description": "편하게 누리는 시원한 단맛",
+      "image": "https://product-image.kurly.com/cdn-cgi/image/quality=85,width=676/product/image/99a43745-2d42-49c3-bb27-abf0fdeefbb5.jpg"
+    },
+    {
+      "id": 4,
+      "name": "꼬마 참외",
+      "price": 6900,
+      "description": "아담한 크기의 꽉 찬 달콤함",
+      "image": "https://product-image.kurly.com/cdn-cgi/image/quality=85,width=676/product/image/780065ae-426b-4c1c-a743-7c61c7470469.jpg"
+    },
+    {
+      "id": 5,
+      "name": "스테비아 토마토",
+      "price": 6980,
+      "description": "설탕 없이도 달달함을 머금은 방울토마토",
+      "image": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1653038808276l0.jpeg"
+    },
+    {
+      "id": 6,
+      "name": "머스크 멜론",
+      "price": 12900,
+      "description": "부드러운 달콤함과 풍부한 향",
+      "image": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1637922854753l0.jpeg"
+    },
+    {
+      "id": 7,
+      "name": "사과",
+      "price": 15900,
+      "description": "아삭아삭 달콤한 사과",
+      "image": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1604033113200l0.jpg"
+    },
+    {
+      "id": 8,
+      "name": "거봉 포도",
+      "price": 14900,
+      "description": "양손에 들어오는 아담한 거봉",
+      "image": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1563777423511l0.jpg"
+    }
+  ]
+}
