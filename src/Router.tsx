@@ -1,6 +1,7 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Main from "./pages/Main/Main";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Main from './pages/Main/Main';
+import Detail from './pages/Detail/Detail';
 
 interface RouterType {
   id: number;
@@ -12,9 +13,15 @@ interface RouterType {
 const routers: RouterType[] = [
   {
     id: 0,
-    path: "/",
-    label: "Main",
+    path: '/',
+    label: 'Main',
     element: <Main />,
+  },
+  {
+    id: 1,
+    path: '/detail/:id',
+    label: 'Detail',
+    element: <Detail />,
   },
 ];
 
