@@ -15,6 +15,9 @@
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "axios": "^1.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
@@ -23,7 +26,6 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "styled-components": "^6.0.2",
-    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,12 +33,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -52,6 +48,18 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
-    "prettier": "^2.8.8"
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-standard-with-typescript": "^36.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.8",
+    "react-scripts": "^5.0.1"
+  },
+  "resolutions": {
+    "typescript": "^5.1.6"
   }
 }

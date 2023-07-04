@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import Container from './Container';
 import Icons from '../../assets/icons/icon';
 
@@ -29,12 +30,13 @@ const HeaderWrap = styled.div`
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <HeaderWrap>
       <Container>
         <div className="header_menu">
           <h1>유진과일</h1>
-          <p>
+          <p onClick={() => navigate('/cart')}>
             <Icons.HiOutlineShoppingCart />
             Cart
           </p>

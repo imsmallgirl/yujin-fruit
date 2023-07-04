@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
+import Cart from './pages/Cart/Cart';
 
 interface RouterType {
   id: number;
@@ -9,7 +10,7 @@ interface RouterType {
   label: string;
   element: any;
 }
-// redux 설치해야함
+
 const routers: RouterType[] = [
   {
     id: 0,
@@ -22,6 +23,12 @@ const routers: RouterType[] = [
     path: '/detail/:id',
     label: 'Detail',
     element: <Detail />,
+  },
+  {
+    id: 2,
+    path: '/cart',
+    label: 'Cart',
+    element: <Cart />,
   },
 ];
 

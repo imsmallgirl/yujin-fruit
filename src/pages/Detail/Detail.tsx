@@ -1,9 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import item from '../../data/item.json';
 import { styled } from 'styled-components';
+import { useDispatch } from 'react-redux';
+import item from '../../data/item.json';
 import useFormattedPrice from '../../util/useFormattedPrice';
 import Icons from '../../assets/icons/icon';
+import { addToCart } from '../../store/cart';
 
 const DetailWrap = styled.section`
   padding: 50px 20px;
@@ -86,28 +88,43 @@ const DetailFooter = styled.div`
 `;
 
 const Detail = () => {
-  const { id } = useParams();
-  const index = parseInt(String(id));
+  const dispatch = useDispatch<any>();
+  const { id: detailId } = useParams<{ id: string }>();
+  const index = parseInt(String(detailId), 10);
   const { name, price, description, image } = item.products[index];
 
   /** 현재 선택한 수량 */
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState<number>(1);
 
   const formattedPrice = useFormattedPrice();
   const newPrice = formattedPrice(price);
 
   /** 갯수 올리는 함수 */
   const handleCount = useCallback(
-    (e: any) => {
+    (e: React.MouseEvent<HTMLButtonElement>) => {
       const { id } = e.currentTarget;
       if (id === 'minus') {
-        count !== 1 && setCount((prev) => prev - 1);
+        if (count !== 1) {
+          setCount((prev) => prev - 1);
+        }
         return;
       }
       setCount((prev) => prev + 1);
     },
     [count]
   );
+
+  /** 카트에 상품 추가하는 함수 */
+  const handleAddCart = useCallback(() => {
+    const addCartItem = {
+      id: index,
+      name,
+      image,
+      price,
+      count,
+    };
+    dispatch(addToCart(addCartItem));
+  }, []);
 
   return (
     <DetailWrap>
@@ -139,7 +156,7 @@ const Detail = () => {
         </DetailSelectedItem>
         <DetailFooter>
           <p>총 금액 : {formattedPrice(price * count)}</p>
-          <button>Add to Cart</button>
+          <button onClick={handleAddCart}>Add to Cart</button>
         </DetailFooter>
       </DetailContentWrap>
     </DetailWrap>
