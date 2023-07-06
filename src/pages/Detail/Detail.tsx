@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import item from '../../data/item.json';
 import useFormattedPrice from '../../util/useFormattedPrice';
 import Icons from '../../assets/icons/icon';
-import { addToCart } from '../../store/cart';
+import { addToCart } from '../../store/cartSlice';
 
 const DetailWrap = styled.section`
   padding: 50px 20px;
@@ -113,7 +113,6 @@ const Detail = () => {
     },
     [count]
   );
-
   /** 카트에 상품 추가하는 함수 */
   const handleAddCart = useCallback(() => {
     const addCartItem = {
@@ -124,7 +123,7 @@ const Detail = () => {
       count,
     };
     dispatch(addToCart(addCartItem));
-  }, []);
+  }, [count]);
 
   return (
     <DetailWrap>

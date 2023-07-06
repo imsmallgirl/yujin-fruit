@@ -5,3 +5,11 @@ export interface ItemProps {
   description: string;
   image: string;
 }
+
+export interface CartItemProps {
+  id: number;
+  name: string;
+  count: number;
+  image: string;
+  price: number;
+}

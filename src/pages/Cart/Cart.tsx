@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import { useSelector } from 'react-redux';
+import CartItem from '../../components/Cart/CartItem';
+import { CartItemProps } from '../../interface/item';
+import useFormattedPrice from '../../util/useFormattedPrice';
+import { RootState } from '../../app/store';
 
 const CartWrap = styled.div`
   padding: 50px 20px;
@@ -22,9 +27,43 @@ const CartHeader = styled.div`
 
 const CartContent = styled.div`
   display: flex;
+  .cart-list {
+    .cart-list-length {
+      margin-bottom: 30px;
+      span {
+        font-size: 20px;
+        margin-right: 5px;
+        font-weight: bold;
+        color: green;
+      }
+    }
+    ul.cart-list-content {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .cart-list-content > li {
+        padding: 10px 0;
+        width: 100%;
+      }
+    }
+  }
 `;
 
 const Cart = () => {
+  const [totalPrice, setTotalPrice] = useState<string>('');
+  const cartList = useSelector((state: RootState) => state.cart.cartList);
+  const formattedPrice = useFormattedPrice();
+
+  useEffect(() => {
+    const cartPrice = cartList
+      .map((item: CartItemProps) => item.price * item.count)
+      .reduce((prev: number, curr: number) => prev + curr, 0);
+
+    const formattedTotalPrice = formattedPrice(cartPrice);
+    setTotalPrice(formattedTotalPrice);
+  }, [cartList]);
+
   return (
     <CartWrap>
       <CartHeader>
@@ -33,9 +72,22 @@ const Cart = () => {
       </CartHeader>
       <CartContent>
         <div className="cart-list">
-          <p>1개가 장바구니에 있습니다.</p>
+          <p className="cart-list-length">
+            <span>{cartList.length}</span>개의 상품이 장바구니에 있습니다.
+          </p>
+          <ul className="cart-list-content">
+            {cartList.map((list: CartItemProps) => (
+              <li key={list.id}>
+                <CartItem {...list} />
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="cart-total-price"></div>
+        <div className="cart-total-price">
+          <p>
+            결제예정금액 <span>{totalPrice}</span>
+          </p>
+        </div>
       </CartContent>
     </CartWrap>
   );
